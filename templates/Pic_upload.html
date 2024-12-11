@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COVID X-Ray Image Classification</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
+        form { margin-top: 20px; }
+        button { padding: 10px 20px; font-size: 16px; }
+        h1, h3 { color: #333; }
+    </style>
+</head>
+<body>
+    <h1>Upload X-Ray Image for Prediction</h1>
+    <form action="/predict" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept="image/*" required>
+        <button type="submit">Predict</button>
+    </form>
+    <br>
+    {% if prediction %}
+        <h3>Prediction: {{ prediction }}</h3>
+        <img src="{{ image_path }}" alt="Uploaded Image" width="300px">
+    {% endif %}
+</body>
+</html>
